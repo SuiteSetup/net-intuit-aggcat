@@ -1,0 +1,6 @@
+#!/bin/bash
+
+dated=`date +%Y%m`
+
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout intuit.${dated}.key -out intuit.${dated}.crt
+openssl pkcs12 -export -in intuit.${dated}.crt -inkey intuit.${dated}.key -out intuit.${dated}.p12
